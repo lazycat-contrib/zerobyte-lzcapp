@@ -1,0 +1,48 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/application.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: zerobyte
+
+build:
+  run_buildscript: false
+
+images:
+  - id: zerobyte
+    target: service
+    service: zerobyte
+    source: ghcr.io/nicotsx/zerobyte
+    channel: stable
+    sort: semver
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    create_if_missing: true
+    changelog_locales: [zh, en]
+    retry:
+      enabled: false
+    application:
+      language: zh
+      name: Zerobyte
+      source: https://github.com/nicotsx/zerobyte
+      source_author: nicotsx
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Zerobyte
+    summary: 由 GitHub Actions 自动发布
