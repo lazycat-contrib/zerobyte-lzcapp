@@ -41,7 +41,6 @@ application:
               : "";
         if (username) ctx.flow.set("zerobyte_pending_username", username);
         if (password) ctx.flow.set("zerobyte_pending_password", password);
-
     - id: zerobyte-commit-password
       auth_required: false
       on: response
@@ -60,7 +59,6 @@ application:
         if (typeof password === "string" && password.length > 0) {
           ctx.persist.set("zerobyte.password", password);
         }
-
     - id: zerobyte-login-autofill
       when:
         - /login
@@ -73,11 +71,11 @@ application:
               $persist: zerobyte.password
             userSelector: "input[name='username']"
             passwordSelector: "input[name='password']"
-
 services:
   zerobyte:
     # ghcr.io/nicotsx/zerobyte:v0.12.0
-    image: registry.lazycat.cloud/czyt/nicotsx/zerobyte:7e6b3949ed76475d
+    # upstream: ghcr.io/nicotsx/zerobyte:v0.41.0
+    image: registry.lazycat.cloud/czyt/nicotsx/zerobyte:df2e7177aa4aef86
     environment:
       - APP_SECRET={{ stable_secret "zerobyte_app_secret" }}
       - BASE_URL=https://{{ .S.AppDomain }}
