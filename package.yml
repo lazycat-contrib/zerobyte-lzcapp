@@ -2,7 +2,7 @@ package: community.lazycat.app.zerobyte
 version: 0.41.0
 name: Zerobyte
 description: "为您的远程存储提供强大的备份自动化功能，轻松加密、压缩和保护您的数据"
-min_os_version: 1.6.1
+min_os_version: 1.6.0
 homepage: https://github.com/nicotsx/zerobyte
 author: nicotsx
 unsupported_platforms:
