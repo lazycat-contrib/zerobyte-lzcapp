@@ -9,7 +9,7 @@ on:
       - lzc-manifest.yml
       - package.yml
   schedule:
-    - cron: "19 15 * * *"
+    - cron: "19 13 * * *"
   workflow_dispatch:
 
 permissions:
