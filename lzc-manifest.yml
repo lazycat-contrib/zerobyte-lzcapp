@@ -74,8 +74,8 @@ application:
 services:
   zerobyte:
     # ghcr.io/nicotsx/zerobyte:v0.12.0
-    # upstream: ghcr.io/nicotsx/zerobyte:v0.44.1
-    image: registry.lazycat.cloud/czyt/nicotsx/zerobyte:c6b744083ce403e6
+    # upstream: ghcr.io/nicotsx/zerobyte:v0.44.2
+    image: registry.lazycat.cloud/czyt/nicotsx/zerobyte:bb555fd2968687f3
     environment:
       - APP_SECRET={{ stable_secret "zerobyte_app_secret" }}
       - BASE_URL=https://{{ .S.AppDomain }}
